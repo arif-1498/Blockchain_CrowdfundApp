@@ -31,11 +31,7 @@ export default async function RootLayout({ children }) {
         <App>
         {children}
         </App>
-      
-       
-      
         
-       
       </body>
     </html>
   )
