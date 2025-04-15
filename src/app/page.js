@@ -25,7 +25,7 @@ export default function Page() {
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <ConnectButton  />
       <span	className="text-black bg-gray-100">The Current connected address is: {address}</span>
-      <div className=" bg-gray-100 flex items-center justify-center p-4">
+      <div className=" bg-gray-100 flex items-center justify-center p-4 mb-12">
       <div className="w-full max-w-md bg-white p-6 rounded-2xl shadow-xl">
         <h1 className="text-2xl font-bold mb-4 text-center">📝 To-Do List</h1>
 
