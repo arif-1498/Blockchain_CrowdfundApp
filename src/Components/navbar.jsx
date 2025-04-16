@@ -16,7 +16,7 @@ export const Navbar = () => {
         <Link href="/" className="text-gray-700 hover:text-blue-600">Home</Link>
         <Link href="/about" className="text-gray-700 hover:text-blue-600">About</Link>
         <Link href="/services" className="text-gray-700 hover:text-blue-600">Services</Link>
-        <Link href="/contact" className="text-gray-700 hover:text-blue-600">Contact</Link>
+        <Link href="/Contact" className="text-gray-700 hover:text-blue-600">Contact</Link>
       </div>
 
       <div className="md:hidden">
@@ -31,7 +31,7 @@ export const Navbar = () => {
         <Link href="/" className="block text-gray-700 hover:text-blue-600">Home</Link>
         <Link href="/about" className="block text-gray-700 hover:text-blue-600">About</Link>
         <Link href="/services" className="block text-gray-700 hover:text-blue-600">Services</Link>
-        <Link href="/contact" className="block text-gray-700 hover:text-blue-600">Contact</Link>
+        <Link href="/Contact" className="block text-gray-700 hover:text-blue-600">Contact</Link>
       </div>
     )}
   </nav>
