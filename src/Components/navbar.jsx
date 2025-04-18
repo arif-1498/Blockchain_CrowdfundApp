@@ -1,12 +1,13 @@
 
 'use client'
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from 'lucide-react'
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <nav className="bg-white shadow-md fixed w-full z-50">
+    <nav className="bg-violet-400 shadow-md fixed w-full z-50">
     <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
       <Link href="/" className="text-xl font-bold text-blue-600">
         MyLogo
@@ -16,8 +17,10 @@ export const Navbar = () => {
         <Link href="/" className="text-gray-700 hover:text-blue-600">Home</Link>
         <Link href="/about" className="text-gray-700 hover:text-blue-600">About</Link>
         <Link href="/services" className="text-gray-700 hover:text-blue-600">Services</Link>
-        <Link href="/Contact" className="text-gray-700 hover:text-blue-600">Contact</Link>
+        <Link href="/contact" className="text-gray-700 hover:text-blue-600">Contact</Link>
+       
       </div>
+      <ConnectButton/>
 
       <div className="md:hidden">
         <button onClick={() => setOpen(!open)}>
@@ -34,6 +37,7 @@ export const Navbar = () => {
         <Link href="/Contact" className="block text-gray-700 hover:text-blue-600">Contact</Link>
       </div>
     )}
+  
   </nav>
   );
 };
