@@ -91,7 +91,7 @@ export default function Contact() {
 
       {/* Modal */}
       {modal.show && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-transparent bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded shadow-md max-w-sm w-full">
             <h3 className={`text-xl font-semibold mb-3 ${modal.success ? 'text-green-600' : 'text-red-600'}`}>
               {modal.success ? '✅ Success' : '❌ Error'}
