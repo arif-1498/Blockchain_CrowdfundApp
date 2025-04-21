@@ -1,6 +1,9 @@
 'use client'
 import { useState } from 'react';
 import { useAccount, useWriteContract } from 'wagmi';
+import { contractAddress, contractAbi } from '../Contract/constants';
+import { parseEther } from 'ethers';
+
 
 export default function Contact() {
   const { isConnected } = useAccount();
@@ -32,7 +35,7 @@ export default function Contact() {
         args: [
           form.title,
           form.description,
-          BigInt(form.goal),
+          parseEther(form.goal),
           parseInt(form.duration),
         ],
       });
@@ -47,21 +50,21 @@ export default function Contact() {
     <div className="min-h-screen pt-20 bg-gray-700">
      
       <div className="max-w-xl mx-auto bg-violet-200 rounded-xl shadow-lg p-6">
-        <h2 className="text-2xl font-bold mb-4 text-blue-600">📢 Create a Campaign</h2>
+        <h2 className="text-2xl font-bold mb-4  text-blue-600">📢 Create a Campaign</h2>
 
         <div className="space-y-4">
           <input
             name="title"
             value={form.title}
             onChange={handleChange}
-            className="w-full p-2 border rounded"
+            className="w-full text-black p-2 border rounded"
             placeholder="Campaign Title"
           />
           <textarea
             name="description"
             value={form.description}
             onChange={handleChange}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 text-black border rounded"
             placeholder="Campaign Description"
           />
           <input
@@ -69,15 +72,15 @@ export default function Contact() {
             type="number"
             value={form.goal}
             onChange={handleChange}
-            className="w-full p-2 border rounded"
-            placeholder="Fund Goal (in Wei)"
+            className="w-full p-2 text-black border rounded"
+            placeholder="Fund Goal (in Ether)"
           />
           <input
             name="duration"
             type="number"
             value={form.duration}
             onChange={handleChange}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 text-black border rounded"
             placeholder="Duration (in days)"
           />
           <button

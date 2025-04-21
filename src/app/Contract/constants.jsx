@@ -1,4 +1,4 @@
-export const contractAddress = "0xfFA4386cE3D94E6559AA1C5170aF6DA9Ed81e578";
+export const contractAddress = "0x1f65e2186aBdA9FCbD0EB97C22d66D03118b7Ce4";
 export const contractAbi = [
   {
     anonymous: false,
@@ -102,10 +102,7 @@ export const contractAbi = [
     type: "function",
   },
   {
-    inputs: [
-      { internalType: "uint256", name: "_id", type: "uint256" },
-      { internalType: "uint256", name: "_amount", type: "uint256" },
-    ],
+    inputs: [{ internalType: "uint256", name: "_id", type: "uint256" }],
     name: "donateToCampaign",
     outputs: [],
     stateMutability: "payable",
