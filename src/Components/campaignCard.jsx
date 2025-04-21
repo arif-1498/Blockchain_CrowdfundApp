@@ -51,7 +51,7 @@ export const CampaignCard = ({ campaign }) => {
   {/* Status and Button */}
   <div className="flex justify-between items-center">
     <span className="text-sm font-medium text-gray-700">
-      Status: <span className="text-red-600 font-semibold">Not Withdrawn</span>
+      Status: <span className="text-red-600 font-semibold">{campaign.status? 'Widthrawn':'Not Widthraw'}</span>
     </span>
     <DonateBtn id={campaign.id} />
    
