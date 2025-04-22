@@ -40,7 +40,7 @@ export default function Page() {
   useEffect(() => {
     if (campaignsData) {
       const campaignList = campaignsData
-        .filter((result) => result.status === 'success' && result.result) // Ensure valid results
+        .filter((result) => result.status === 'success' && result.result) 
         .map((result, index) => {
           const campaign = result.result;
           return {

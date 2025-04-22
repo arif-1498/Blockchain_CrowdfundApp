@@ -32,11 +32,11 @@ export const CampaignCard = ({ campaign }) => {
   {/* Progress Bar */}
   <div className="mb-6">
     <div className="flex justify-between text-sm font-medium text-gray-700 mb-2">
-      <span>Raised: {campaign.raised} ETH</span>
+      <span>Raised: {campaign.raisedAmount} ETH</span>
       <span>Goal: {campaign.goal} ETH</span>
     </div>
     <div className="w-full bg-gray-200 rounded-full h-2.5">
-      <div className="bg-blue-600 h-2.5 rounded-full" style={{ width: '0%' }}></div>
+      <div className="bg-blue-600 h-2.5 rounded-full" style={{ width: `${(campaign.raisedAmount / campaign.goal) * 100}%` }}></div>
     </div>
   </div>
 
