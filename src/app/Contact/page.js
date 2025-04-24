@@ -1,4 +1,5 @@
 'use client'
+
 import { useState } from 'react';
 import { useAccount, useWriteContract } from 'wagmi';
 import { contractAddress, contractAbi } from '../Contract/constants';
@@ -48,6 +49,7 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen pt-20 bg-gray-700">
+       
      
       <div className="max-w-xl mx-auto bg-violet-200 rounded-xl shadow-lg p-6">
         <h2 className="text-2xl font-bold mb-4  text-blue-600">📢 Create a Campaign</h2>

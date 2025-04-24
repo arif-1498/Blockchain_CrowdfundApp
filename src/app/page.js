@@ -19,6 +19,7 @@ export default function Page() {
     abi: contractAbi,
     functionName: 'campaignCount',
     watch: true,
+    
   });
 
   // Prepare contract calls for each campaign
