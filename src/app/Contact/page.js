@@ -4,9 +4,15 @@ import { useState } from 'react';
 import { useAccount, useWriteContract } from 'wagmi';
 import { contractAddress, contractAbi } from '../Contract/constants';
 import { parseEther } from 'ethers';
+import { getContractData } from '../Contract/globleData';
 
 
 export default function Contact() {
+
+const allData=getContractData(); 
+
+console.log("The contract Data is :",allData)
+
   const { isConnected } = useAccount();
   const { writeContractAsync } = useWriteContract();
 

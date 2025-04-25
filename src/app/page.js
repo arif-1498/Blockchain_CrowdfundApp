@@ -73,33 +73,39 @@ export default function Page() {
 
   return (
     
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white p-6 pt-24">
-      
-      <div className="max-w-2xl mx-auto bg-white shadow-xl rounded-2xl p-8">
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold text-gray-800">Fund Raising Campaigns </h1>
-         
-          <button
-           
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
-          >
-            {isConnected? ' Connected ✅': 'Connect Wallet'}
-          </button>
-          
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-50 to-white p-8 pt-28">
+    <div className="max-w-4xl mx-auto bg-white shadow-2xl rounded-3xl p-10 transition-all duration-300">
+        <div className="flex justify-between items-center mb-8">
+            <h1 className="text-4xl items-center font-extrabold text-gray-900 tracking-tight">
+                Fund Raising Campaigns
+            </h1>
+            <button
+                className="flex items-center bg-blue-600 text-white px-5 py-2.5 rounded-xl hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition-all duration-200 font-medium"
+            >
+                {isConnected ? (
+                    <span className="flex items-center">
+                        Connected
+                        <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </span>
+                ) : (
+                    'Connect Wallet'
+                )}
+            </button>
         </div>
 
-        {
-          campaigns.map((campaign) => (
-            <CampaignCard key={campaign.id} campaign={campaign}/>
-          ))
-        }
-
-        
-
-       
-        
-       
-      </div>
+        <div className="grid gap-6">
+            {campaigns.map((campaign) => (
+                <div
+                    key={campaign.id}
+                    className="transform hover:scale-[1.02] transition-all duration-200"
+                >
+                    <CampaignCard campaign={campaign} />
+                </div>
+            ))}
+        </div>
     </div>
+</div>
   );
 }
