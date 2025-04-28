@@ -7,8 +7,7 @@ import { CampaignCard } from "@/Components/campaignCard";
 import { contractAddress } from "./Contract/constants";
 import {contractAbi} from "./Contract/constants"; 
 import { useConnect , useAccount, useReadContract, useReadContracts} from "wagmi";
-import { WalletOptions } from "@/Components/walletoptions";
-import { ConnectButton } from '@rainbow-me/rainbowkit';
+
 export default function Page() {
   const{address,isConnected}=useAccount(); 
   const [campaigns, setCampaigns] = useState([]);
@@ -73,39 +72,42 @@ export default function Page() {
 
   return (
     
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-50 to-white p-8 pt-28">
-    <div className="max-w-4xl mx-auto bg-white shadow-2xl rounded-3xl p-10 transition-all duration-300">
-        <div className="flex justify-between items-center mb-8">
-            <h1 className="text-4xl items-center font-extrabold text-gray-900 tracking-tight">
-                Fund Raising Campaigns
-            </h1>
-            <button
-                className="flex items-center bg-blue-600 text-white px-5 py-2.5 rounded-xl hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition-all duration-200 font-medium"
-            >
-                {isConnected ? (
-                    <span className="flex items-center">
-                        Connected
-                        <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                    </span>
-                ) : (
-                    'Connect Wallet'
-                )}
-            </button>
-        </div>
-
-        <div className="grid gap-6">
-            {campaigns.map((campaign) => (
-                <div
-                    key={campaign.id}
-                    className="transform hover:scale-[1.02] transition-all duration-200"
-                >
-                    <CampaignCard campaign={campaign} />
-                </div>
-            ))}
-        </div>
-    </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-400 via-blue-50 to-white p-8 pt-28">
+   <div className="bg-gradient-to-r from-blue-100 to-blue-50 py-4">
+  <div className="flex flex-col md:flex-row justify-between items-center max-w-5xl mx-auto px-4 mb-12">
+    <h1 className="text-2xl font-extrabold text-gray-900 tracking-tight mb-6 md:mb-0">
+      Fund Raising Campaigns
+    </h1>
+    <button
+      className="flex items-center bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition-all duration-300 font-semibold text-lg shadow-md"
+    >
+      {isConnected ? (
+        <span className="flex items-center">
+          Connected
+          <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+          </svg>
+        </span>
+      ) : (
+        'Connect Wallet'
+      )}
+    </button>
+  </div>
 </div>
+  
+   
+      <div className="flex space-x-6 overflow-x-auto p-4">
+        {campaigns.map((campaign) => (
+          <div
+            key={campaign.id}
+            className="flex-shrink-0 w-80 transform hover:scale-[1.03] transition-all duration-300 hover:shadow-xl"
+          >
+            <CampaignCard campaign={campaign} />
+          </div>
+        ))}
+      </div>
+    
+  </div>
+  
   );
 }

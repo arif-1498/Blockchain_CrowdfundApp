@@ -2,8 +2,9 @@ import { DonateBtn } from "./donatebtn";
 
 export const CampaignCard = ({ campaign }) => {
   return (
-    <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-lg p-8 w-full max-w-2xl mx-auto mt-12 transition-all hover:shadow-xl">
-      {/* Header */}
+    <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-lg p-8 w-full max-w-sm mx-auto h-[500px] flex flex-col justify-between transition-all hover:shadow-2xl">
+    {/* Header */}
+    <div>
       <div className="flex items-center mb-4">
         <div className="bg-blue-100 p-3 rounded-full mr-4">
           <svg
@@ -21,13 +22,13 @@ export const CampaignCard = ({ campaign }) => {
             ></path>
           </svg>
         </div>
-        <h2 className="text-3xl font-extrabold text-blue-800">
+        <h2 className="text-2xl font-extrabold text-blue-800 truncate">
           {campaign.title}
         </h2>
       </div>
 
       {/* Description */}
-      <p className="text-gray-600 leading-relaxed mb-6">
+      <p className="text-gray-600 leading-relaxed mb-6 line-clamp-3">
         {campaign.description}
       </p>
 
@@ -64,17 +65,18 @@ export const CampaignCard = ({ campaign }) => {
           <span>{campaign.deadline}</span>
         </div>
       </div>
-
-      {/* Status and Button */}
-      <div className="flex justify-between items-center">
-        <span className="text-sm font-medium text-gray-700">
-          Status:{" "}
-          <span className="text-red-600 font-semibold">
-            {campaign.status ? "Widthrawn" : "Not Widthraw"}
-          </span>
-        </span>
-        <DonateBtn id={campaign.id} />
-      </div>
     </div>
+
+    {/* Status and Button */}
+    <div className="flex justify-between items-center">
+      <span className="text-sm font-medium text-gray-700">
+        Status:{" "}
+        <span className="text-red-600 font-semibold">
+          {campaign.status ? "Withdrawn" : "Not Withdrawn"}
+        </span>
+      </span>
+      <DonateBtn id={campaign.id} />
+    </div>
+  </div>
   );
 };

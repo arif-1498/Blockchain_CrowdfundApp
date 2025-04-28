@@ -54,10 +54,10 @@ console.log("The contract Data is :",allData)
   };
 
   return (
-    <div className="min-h-screen pt-20 bg-gray-700">
+    <div className="min-h-screen bg-gradient-to-br from-blue-400  pt-20 bg-">
        
      
-      <div className="max-w-xl mx-auto bg-violet-200 rounded-xl shadow-lg p-6">
+      <div className="max-w-xl mx-auto bg-violet-200 rounded-xl hover:scale-[1.03] transition-all duration-300 hover:shadow-xl shadow-lg p-6">
         <h2 className="text-2xl font-bold mb-4  text-blue-600">📢 Create a Campaign</h2>
 
         <div className="space-y-4">
