@@ -83,7 +83,7 @@ export default function Page() {
     >
       {isConnected ? (
         <span className="flex items-center">
-          Connected
+           Connected
           <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
           </svg>
@@ -96,11 +96,11 @@ export default function Page() {
 </div>
   
    
-      <div className="flex space-x-6 overflow-x-auto p-4">
+      <div className="flex flex-col lg:flex-row space-x-6  lg:space-x-6 space-y-6 lg:space-y-0 p-4 overflow-x-auto">
         {campaigns.map((campaign) => (
           <div
             key={campaign.id}
-            className="flex-shrink-0 w-80 transform hover:scale-[1.03] transition-all duration-300 hover:shadow-xl"
+            className="flex-shrink-0  w-80 transform hover:scale-[1.03] transition-all duration-300 hover:shadow-xl"
           >
             <CampaignCard campaign={campaign} />
           </div>
