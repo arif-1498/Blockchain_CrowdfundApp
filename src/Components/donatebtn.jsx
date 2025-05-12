@@ -134,6 +134,7 @@ export const DonateBtn = ({ id }) => {
       )}
       {/* Modal */}
       {modal.show && (
+        <ModalPortal>
         <div className="fixed inset-0 bg-transparent bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded shadow-md max-w-sm w-full">
             <h3
@@ -154,6 +155,7 @@ export const DonateBtn = ({ id }) => {
             </div>
           </div>
         </div>
+        </ModalPortal>
       )}
     </>
   );

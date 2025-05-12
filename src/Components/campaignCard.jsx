@@ -86,8 +86,8 @@ export const CampaignCard = ({ campaign }) => {
     <div className="flex justify-between items-center pt-2 border-t border-gray-100">
       <span className="text-xs text-gray-600 font-medium">
         Status:{" "}
-        <span className={`font-semibold ${campaign.status ? "text-red-600" : "text-green-600"}`}>
-          {campaign.status ? "Withdrawn" : "Active"}
+        <span className={`font-semibold ${campaign.withdrawn ? "text-red-600" : "text-green-600"}`}>
+          {campaign.withdrawn ? "Withdrawn! " : "Active"}
         </span>
       </span>
       <DonateBtn id={campaign.id} />

@@ -45,6 +45,8 @@ export const getContractData=()=>{
            .filter((result) => result.status === 'success' && result.result) 
            .map((result, index) => {
              const campaign = result.result;
+              const date = new Date(Number(campaign[4]) * 1000);
+               const formattedDeadline = date.toLocaleDateString('en-US', {year: 'numeric',  month: 'long',day: 'numeric',});
              return {
                id: index + 1,
                creator: campaign[0],
