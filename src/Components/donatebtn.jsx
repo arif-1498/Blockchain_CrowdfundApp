@@ -1,5 +1,5 @@
-import { useWriteContract, useAccount } from "wagmi";
-import { useState } from "react";
+import { useWriteContract, useAccount, useWaitForTransactionReceipt } from "wagmi";
+import { useState, useEffect } from "react";
 import { parseEther } from "ethers";
 import { contractAddress, contractAbi } from "../app/Contract/constants";
 import { ModalPortal } from "./modalportal";
@@ -7,15 +7,46 @@ import Image from "next/image";
 
 export const DonateBtn = ({ id }) => {
   const { isConnected } = useAccount();
-  const { writeContractAsync, error, isPending, isError, isSuccess, data } =
+  const { writeContractAsync, error, isPending,  isSuccess, data:hash } =
     useWriteContract();
+   const { isLoading: isConfirming, isSuccess: isConfirmed, isError: isConfirmedError,error:confirmError } =useWaitForTransactionReceipt({hash, })
   const [modal, setModal] = useState({
     show: false,
     success: false,
     message: "",
   });
+
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [donationAmount, setDonationAmount] = useState("");
+
+  useEffect(() => {
+
+    
+  if (isConfirming) {
+    setModal({
+      show: true,
+      success: false,
+      message: "Transaction pending...",
+    });
+  }
+
+  if (isConfirmed) {
+    setModal({
+      show: true,
+      success: true,
+      message: `Donation successful! Tx: ${hash}`,
+    });
+  }
+
+  if (isConfirmedError) {
+    setModal({
+      show: true,
+      success: false,
+      message: `Transaction failed: ${confirmError}`,
+    });
+  }
+}, [isConfirming, isConfirmed, isConfirmedError, hash, error]);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => {
@@ -40,11 +71,11 @@ export const DonateBtn = ({ id }) => {
         args: [id],
         value: parseEther(donationAmount),
       });
-
+     
       setModal({
         show: true,
         success: true,
-        message: `Campaign created! Tx: ${tx.hash}`,
+        message: `Campaign created! Tx: ${hash}`,
       });
     } catch (error) {
       setModal({

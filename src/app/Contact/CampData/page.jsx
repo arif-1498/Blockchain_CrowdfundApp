@@ -14,6 +14,9 @@ export default function CampData() {
   const data = getContractData();
   console.log("contract data ata campdata:", data);
 
+   const totalpage= data.length;
+    const itemperpage=5;
+
   const withdrawfund=async (campid)=>{
     try {
       const tx = await writeContractAsync({

@@ -53,7 +53,7 @@ export const getContractData=()=>{
                title: campaign[1],
                description: campaign[2],
                goal: formatEther(campaign[3]),
-               deadline: new Date(Number(campaign[4]) * 1000).toLocaleString(),
+               deadline: formattedDeadline,
                raisedAmount: formatEther(campaign[5]),
                withdrawn: campaign[6],
              };
